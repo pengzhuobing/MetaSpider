@@ -7,7 +7,7 @@ import json
 import time
 
 PROJECT_URL = "https://www.ebi.ac.uk/ebisearch/ws/rest/metagenomics_projects?format=json&size=1&start=0&fields=ENA_PROJECT%2CMETAGENOMICS_SAMPLES%2Cbiome_name%2Cname&query={}&facets="
-#搜索的URL
+#搜索的URL,将ID号替换成{}
 
 
 def try_many_time(times): #重复多次爬取动作
@@ -26,11 +26,11 @@ def try_many_time(times): #重复多次爬取动作
 @try_many_time(3) #修饰器，重复3此爬取动作，该修饰器需要放在修饰的动作上面
 
 def get_pro_info(ID): #爬呀爬
-    purl = PROJECT_URL.format(ID)
-    response = requests.request("GET", purl)
+    purl = PROJECT_URL.format(ID) #形成ID对应的url
+    response = requests.request("GET", purl) #爬取动作
     response.encoding = 'utf-8'
-    ps = json.loads(response.text)
-    entries = ps["entries"]
+    ps = json.loads(response.text) #解析json
+    entries = ps["entries"] #取得想要信息
     # if ps["hitCount"] == 0:
     #     return ID
     return entries
