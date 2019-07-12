@@ -45,8 +45,8 @@ def get_pro_info(ID): #爬呀爬
 if __name__ ==  '__main__':
     pro_info = []
     fields = ['ENA_PROJECT', 'name','biome_name','METAGENOMICS_SAMPLES']
-    projectID = open("C:\\Users\\32601\\Desktop\\ncbino.txt","r")
-    out = open("C:\\Users\\32601\\Desktop\\depli_EMDL_out.txt","w") #收集的项目ID
+    projectID = open("projectID.txt","r")
+    out = open("depli_EMDL_out.txt","w") #收集的项目ID
     out.write("Project\t" + "\t".join(fields) + "\tSAMPLES_NUM\n")  #将爬取的信息输出到文件中
     for line in projectID.readlines():
         proinfo = get_pro_info(line)
