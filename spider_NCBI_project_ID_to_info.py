@@ -59,7 +59,7 @@ def get_project(acc): #传入ID
 
 if __name__ == '__main__':
     out = open("depli_NCBI_out.txt","w")
-    projectID = open("delplicationID_2.txt","r") 
+    projectID = open("projectID.txt","r") 
     projects = []
     for line in projectID.readlines():
         pdict = get_project(line)
