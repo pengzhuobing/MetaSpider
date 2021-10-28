@@ -1,3 +1,5 @@
-# Bioinformation
-关于生信分析的知识库
->* spider*.py为爬虫
+# Meta Spider
+Crawling and sorting out NCBI and EMBL metagenomic projects and samples through python
+
+>* python spider_EMBL_project_ID_to_info.py
+>* python spider_NCBI_project_ID_to_info.py
